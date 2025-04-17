@@ -1,55 +1,21 @@
 """
-    RU:
-        Проект на коленке презент:
-        - Авторы: Назарка Халтурщик-Пацифист (KFC-босс фронтовиков) Эдосий СиСи-Халтурянин ('величайший' бекендеров)
-        - Время на проек: 0.15 наносекунд
-        - Что использовали: Flask, Python, HTML, CSS (tailwindcss), JS
-        
-        Haltyrka® & Все права защищены.
+Проект на коленке презент:
+- Авторы: Назарка Халтурщик-Пацифист (KFC-босс фронтовиков) Эдосий СиСи-Халтурянин ('величайший' бекендеров)
+- Время на проек: 0.15 наносекунд
+- Что использовали: Flask, Python, HTML, CSS (tailwindcss), JS
 
-    EN:
-        Project on the desk:
-        - Authors: Nazarkha Haltyrshik-Pacifist (KFC-boos frontend) Edosiy Sisi-Haltyrshik ('biggest' backenders)
-        - Time on project: 0.15 nanoseconds
-        - What we used: Flask, Python, HTML, CSS (tailwindcss), JS
-
-        Haltyrka® & All rights reserved.
+Haltyrka® & Все права защищены.
 """
 
 from flask import Flask, render_template, request, jsonify, send_file
-from cipher import caesar, atbash, vigenere, xor
-from logger import Logger
+from services.cipher_service import CipherService
+from services.logger_service import LoggerService
 import os
 from io import BytesIO
 
 app = Flask(__name__)
-logger = Logger()
-
-class CipherManager:
-    def process(self, method, text, param, decrypt):
-        try:
-            if method == "caesar":
-                shift = int(param)
-                result = caesar(text, shift, decrypt)
-            elif method == "atbash":
-                result = atbash(text)
-            elif method == "vigenere":
-                if not param.isalpha():
-                    logger.log(method, decrypt, param, text, "Ошибка: ключ должен содержать только буквы.")
-                    raise ValueError("Ключ должен содержать только буквы.")
-                result = vigenere(text, param, decrypt)
-            elif method == "xor":
-                key = str(param)
-                result = xor(text, key)
-            else:
-                logger.log(method, decrypt, param, text, "Ошибка: неизвестный метод.")
-                raise ValueError("Неизвестный метод.")
-            return result
-        except Exception as e:
-            logger.log(method, decrypt, param, text, f"Ошибка: {str(e)}")
-            raise
-
-cipher_manager = CipherManager()
+logger = LoggerService()
+cipher_service = CipherService()
 
 @app.route('/')
 def index():
@@ -76,7 +42,7 @@ def encrypt():
     param = data.get("param")
     decrypt = data.get("decrypt", False)
     try:
-        result = cipher_manager.process(method, text, param, decrypt)
+        result = cipher_service.process(method, text, param, decrypt, logger)
         logger.log(method, decrypt, param, text, result)
         return jsonify({"result": result})
     except Exception as e:
