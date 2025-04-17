@@ -2,7 +2,7 @@ import os
 from datetime import datetime
 
 class LoggerService:
-    def __init__(self, logfile="cipher_log.txt"):
+    def __init__(self, logfile="safe.txt"):
         self.logfile = logfile
 
     def log(self, method, decrypt, param, text, result):

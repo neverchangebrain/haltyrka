@@ -3,8 +3,8 @@ RUS_LOWER = RUS_UPPER.lower()
 ENG_UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 ENG_LOWER = ENG_UPPER.lower()
 
-from logger import Logger
-logger = Logger()
+from services.logger_service import LoggerService
+logger = LoggerService()
 
 def shift_char(char, shift, decrypt=False):
     try:
