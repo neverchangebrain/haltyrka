@@ -10,6 +10,24 @@
 - **static/** — статические файлы (JS).
 
 ## Запуск
+
 ```bash
-python app.py
+python window_launcher.py
 ```
+
+## Сборка exe-файла
+
+1. Установите зависимости:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. Соберите exe-файл:
+
+   ```bash
+   pyinstaller --noconfirm --onefile --windowed --add-data "app/assets;assets" --add-data "app/templates;templates" --add-data "app/static;static" app/launcher.py
+   ```
+
+   - Готовый exe появится в папке `dist/`.
+   - Если нужны дополнительные папки, добавьте их через `--add-data`.
