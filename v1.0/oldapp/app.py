@@ -23,17 +23,17 @@ def index():
 
 @app.route('/cipher/<method>')
 def cipher_page(method):
-    lang = request.args.get("lang", "ru")
+    lang = request.args.get("lang", "en")
     method_map = {
         "caesar": {"ru": "Цезарь", "uk": "Цезар", "en": "Caesar"},
         "atbash": {"ru": "Атбаш", "uk": "Атбаш", "en": "Atbash"},
         "vigenere": {"ru": "Виженер", "uk": "Віженер", "en": "Vigenère"},
         "xor": {"ru": "XOR", "uk": "XOR", "en": "XOR"}
     }
-    method_name = method_map.get(method, {}).get(lang, "Неизвестный метод")
+    method_name = method_map.get(method, {}).get(lang, "Unknown method")
     if method not in method_map:
-        return "Неверный метод шифрования", 404
-    return render_template('cipher_page.html', method_name=method_name, method_value=method)
+        return "Invalid encryption method", 404
+    return render_template('cipher_page.html', method_name=method_name, method_value=method, lang=lang)
 
 @app.route('/encrypt', methods=['POST'])
 def encrypt():

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Шифратор</title>
+    <title data-i18n="title">Cipher</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
       rel="stylesheet"
@@ -44,31 +44,31 @@
           class="bg-dark border border-border text-accent rounded px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-primary transition"
           onchange="setLang(this.value)"
         >
+          <option value="en">English</option>
           <option value="ru">Русский</option>
           <option value="uk">Українська</option>
-          <option value="en">English</option>
         </select>
       </div>
       <h1
         class="text-2xl font-semibold mb-6 text-center tracking-tight"
         data-i18n="choose_method"
       >
-        Выберите метод шифрования
+        Choose encryption method
       </h1>
 
       <label class="block mb-2 text-accent" data-i18n="method_label"
-        >Метод шифрования:</label
+        >Encryption method:</label
       >
       <select
         id="method"
         class="w-full p-2 rounded bg-dark border border-border text-accent mb-4 focus:outline-none focus:ring-2 focus:ring-primary transition"
       >
         <option value="" disabled selected data-i18n="choose_method_option">
-          -- Выберите метод --
+          -- Choose method --
         </option>
-        <option value="caesar" data-i18n="caesar">Цезарь</option>
-        <option value="atbash" data-i18n="atbash">Атбаш</option>
-        <option value="vigenere" data-i18n="vigenere">Виженер</option>
+        <option value="caesar" data-i18n="caesar">Caesar</option>
+        <option value="atbash" data-i18n="atbash">Atbash</option>
+        <option value="vigenere" data-i18n="vigenere">Vigenère</option>
         <option value="xor" data-i18n="xor">XOR</option>
       </select>
 
@@ -77,14 +77,26 @@
         class="bg-primary text-dark font-semibold py-2 px-4 rounded w-full mb-4 hover:bg-accent transition"
         data-i18n="continue"
       >
-        Продолжить
+        Continue
       </button>
     </div>
 
     <script>
-      // Локализации
       const translations = {
+        en: {
+          title: "Cipher",
+          choose_method: "Choose encryption method",
+          method_label: "Encryption method:",
+          choose_method_option: "-- Choose method --",
+          caesar: "Caesar",
+          atbash: "Atbash",
+          vigenere: "Vigenère",
+          xor: "XOR",
+          continue: "Continue",
+          alert_choose: "Please select an encryption method.",
+        },
         ru: {
+          title: "Шифратор",
           choose_method: "Выберите метод шифрования",
           method_label: "Метод шифрования:",
           choose_method_option: "-- Выберите метод --",
@@ -96,6 +108,7 @@
           alert_choose: "Пожалуйста, выберите метод шифрования.",
         },
         uk: {
+          title: "Шифрувальник",
           choose_method: "Оберіть метод шифрування",
           method_label: "Метод шифрування:",
           choose_method_option: "-- Оберіть метод --",
@@ -106,17 +119,6 @@
           continue: "Продовжити",
           alert_choose: "Будь ласка, оберіть метод шифрування.",
         },
-        en: {
-          choose_method: "Choose encryption method",
-          method_label: "Encryption method:",
-          choose_method_option: "-- Choose method --",
-          caesar: "Caesar",
-          atbash: "Atbash",
-          vigenere: "Vigenère",
-          xor: "XOR",
-          continue: "Continue",
-          alert_choose: "Please select an encryption method.",
-        },
       };
 
       function setLang(lang) {
@@ -125,22 +127,18 @@
         for (const el of document.querySelectorAll("[data-i18n]")) {
           const key = el.getAttribute("data-i18n");
           if (translations[lang][key]) {
-            if (el.tagName === "OPTION") {
-              el.textContent = translations[lang][key];
-            } else {
-              el.innerText = translations[lang][key];
-            }
+            el.innerText = translations[lang][key];
           }
         }
+        document.getElementById("lang").value = lang;
       }
 
       function getLang() {
-        return localStorage.getItem("lang") || "ru";
+        return localStorage.getItem("lang") || "en";
       }
 
       document.addEventListener("DOMContentLoaded", function () {
         setLang(getLang());
-        document.getElementById("lang").value = getLang();
       });
 
       function goToCipherPage() {
