@@ -3,8 +3,9 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
-import MainCard from "./components/MainCard";
-import getTranslation from "./localization/constants";
+
+import MainCard from "@/app/components/MainCard";
+import getTranslation from "@/app/localization/constants";
 
 export default function HomePage() {
   const router = useRouter();

@@ -1,11 +1,15 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState, useRef } from "react";
-import LanguageSelector from "../../components/LanguageSelector";
 import { Toaster } from "react-hot-toast";
-import { showError } from "../../utils/notification";
-import getTranslation from "../../localization/constants";
+
+import LanguageSelector from "@/app/components/LanguageSelector";
+import { showError } from "@/app/utils/notification";
+import getTranslation from "@/app/localization/constants";
 import { BackIcon } from "@/app/components/icons/Back";
+import { APIEncrypt } from "@/app/lib/encrypt";
+import { APIHistory } from "@/app/lib/history";
+import { APIOpenFile } from "@/app/lib/open-file";
 
 export default function CipherPage({ params }: { params: { method: string } }) {
   const router = useRouter();
@@ -40,6 +44,42 @@ export default function CipherPage({ params }: { params: { method: string } }) {
     }
   };
 
+  const submitCipher = async () => {
+    const result = await APIEncrypt({
+      method: params.method,
+      text,
+      param: Number.isNaN(param) ? param : Number(param),
+      decrypt,
+    });
+
+    if (typeof result === "number") {
+      showError(t[result]);
+    } else {
+      setResult(result);
+    }
+  };
+
+  const openFile = async (value: React.ChangeEvent<HTMLInputElement>) => {
+    const result = await APIOpenFile({ value });
+
+    if (!result) {
+      showError(t[result]);
+    } else {
+      setText(result);
+    }
+  };
+
+  async function getHistory() {
+    const result = await APIHistory();
+
+    if (result === "") {
+      showError(t.log_empty);
+    } else {
+      setHistory(result);
+      setShowHistory(true);
+    }
+  }
+
   return (
     <div className="relative min-h-screen flex items-center justify-center font-sans px-4 bg-black overflow-hidden">
       <Toaster position="top-center" />
@@ -70,7 +110,7 @@ export default function CipherPage({ params }: { params: { method: string } }) {
             rows={5}
           />
 
-          {getParamLabel() && (
+          {params.method !== "atbash" && (
             <div className="mb-4">
               <label className="block mb-2 text-[#e0c172] text-sm font-medium">
                 {getParamLabel()}
@@ -99,18 +139,18 @@ export default function CipherPage({ params }: { params: { method: string } }) {
                 type="file"
                 ref={fileInputRef}
                 className="hidden"
-                // onChange={openFile}
+                onChange={openFile}
               />
               <span>{t.open_file}</span>
             </label>
             <button
-              // onClick={saveResultToDirectory}
+              onClick={() => fileInputRef.current?.click()}
               className="border border-[#d4af37] text-[#e0c172] font-medium py-2 px-4 rounded-lg bg-transparent hover:bg-[#d4af37]/10 transition"
             >
               {t.save_result}
             </button>
             <button
-              onClick={() => setShowHistory(true)}
+              onClick={getHistory}
               className="border border-[#d4af37] text-[#e0c172] font-medium py-2 px-4 rounded-lg bg-transparent hover:bg-[#d4af37]/10 transition"
             >
               {t.history}
@@ -118,7 +158,7 @@ export default function CipherPage({ params }: { params: { method: string } }) {
           </div>
 
           <button
-            // onClick={submitCipher}
+            onClick={submitCipher}
             className="bg-[#d4af37] text-black font-semibold py-3 px-6 rounded-lg w-full mb-6 hover:bg-[#e0c172] transition"
           >
             {t.run}
@@ -133,18 +173,12 @@ export default function CipherPage({ params }: { params: { method: string } }) {
 
           {showHistory && (
             <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 backdrop-blur-sm">
-              <div className="bg-gradient-to-br from-[#1a1a1a] to-black border border-[#d4af37]/30 rounded-lg p-6 w-full max-w-xl max-h-[80vh] relative overflow-hidden">
+              <div className="bg-gradient-to-br from-[#1a1a1a] to-black border border-[#d4af37]/30 rounded-lg p-6 w-[1200px] max-h-[80vh] relative overflow-hidden">
                 <div className="absolute -top-16 -right-16 w-48 h-48 bg-[#d4af37]/10 rounded-full blur-3xl z-0" />
-                <button
-                  onClick={() => setShowHistory(false)}
-                  className="absolute top-3 right-3 text-[#e0c172] hover:text-white z-10 h-8 w-8 flex items-center justify-center rounded-full hover:bg-[#d4af37]/10"
-                >
-                  &times;
-                </button>
                 <h3 className="text-xl font-semibold mb-4 text-[#d4af37] relative z-10">
                   {t.history_title}
                 </h3>
-                <pre className="bg-[#121212] border border-[#d4af37]/30 p-4 rounded-lg text-sm text-white max-h-96 overflow-y-auto relative z-10">
+                <pre className="bg-[#121212] border border-[#d4af37]/30 p-4 rounded-lg text-sm text-white max-h-96 overflow-auto relative z-10 custom-scrollbar">
                   {history || t.log_empty}
                 </pre>
                 <div className="flex justify-end mt-4 relative z-10">
@@ -155,6 +189,35 @@ export default function CipherPage({ params }: { params: { method: string } }) {
                     {t.cancel}
                   </button>
                 </div>
+                <style jsx>{`
+                  .custom-scrollbar {
+                    scrollbar-width: thin;
+                    scrollbar-color: #d4af37 #121212;
+                  }
+
+                  .custom-scrollbar::-webkit-scrollbar {
+                    width: 10px;
+                    height: 10px;
+                    background: #121212;
+                  }
+
+                  .custom-scrollbar::-webkit-scrollbar-thumb {
+                    background: linear-gradient(
+                      135deg,
+                      #d4af37 60%,
+                      #e0c172 100%
+                    );
+                    border-radius: 8px;
+                  }
+
+                  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+                    background: #e0c172;
+                  }
+
+                  .custom-scrollbar::-webkit-scrollbar-corner {
+                    background: #121212;
+                  }
+                `}</style>
               </div>
             </div>
           )}

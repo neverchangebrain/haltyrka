@@ -1,0 +1,61 @@
+[2025-04-24 19:38:47] | method: caesar | decrypt: False | param: 123123 | text: asda | result: nfqn
+[2025-04-24 19:38:54] | method: caesar | decrypt: False | param: 123123 | text: aasdasdasdsadasdsda | result: nnfqnfqnfqfnqnfqfqn
+[2025-04-24 19:38:57] | method: caesar | decrypt: False | param: 123122223 | text: aasdasdasdsadasdsda | result: ddvgdvgdvgvdgdvgvgd
+[2025-04-24 19:52:01] | method: atbash | decrypt: False | param:  | text: asda | result: zhwz
+[2025-04-24 19:52:06] | method: atbash | decrypt: False | param:  | text: asdsadasdsad | result: zhwhzwzhwhzw
+[2025-04-24 20:03:47] | method: caesar | decrypt: False | param:  | text:  | result: 
+[2025-04-24 20:03:47] | method: caesar | decrypt: False | param:  | text:  | result: 
+[2025-04-24 20:03:48] | method: caesar | decrypt: False | param:  | text:  | result: 
+[2025-04-24 20:03:48] | method: caesar | decrypt: False | param:  | text:  | result: 
+[2025-04-24 20:03:48] | method: caesar | decrypt: False | param:  | text:  | result: 
+[2025-04-24 20:05:08] | method: caesar | decrypt: False | param:  | text:  | result: 
+[2025-04-24 20:05:08] | method: caesar | decrypt: False | param:  | text:  | result: 
+[2025-04-24 20:05:08] | method: caesar | decrypt: False | param:  | text:  | result: 
+[2025-04-24 20:05:08] | method: caesar | decrypt: False | param:  | text:  | result: 
+[2025-04-24 20:07:35] | method: caesar | decrypt: False | param:  | text:  | result: 
+[2025-04-24 20:07:35] | method: caesar | decrypt: False | param:  | text:  | result: 
+[2025-04-24 20:07:59] | method: caesar | decrypt: False | param:  | text:  | result: 
+[2025-04-24 20:07:59] | method: caesar | decrypt: False | param:  | text:  | result: 
+[2025-04-24 20:16:45] | method: caesar | decrypt: False | param:  | text:  | result: 
+[2025-04-24 20:32:39] | method: caesar | decrypt: False | param: 123 | text: asdad | result: tlwtw
+[2025-04-24 20:33:04] | method: caesar | decrypt: False | param: 123 | text: asdasd | result: tlwtlw
+[2025-04-24 20:38:27] | method: caesar | decrypt: False | param: 0 | text:  | result: 
+[2025-04-24 20:38:27] | method: caesar | decrypt: False | param: 0 | text:  | result: 
+[2025-04-24 20:38:28] | method: caesar | decrypt: False | param: 0 | text:  | result: 
+[2025-04-24 20:38:28] | method: caesar | decrypt: False | param: 0 | text:  | result: 
+[2025-04-24 20:39:19] | method: caesar | decrypt: False | param: 0 | text:  | result: 
+[2025-04-24 20:39:19] | method: caesar | decrypt: False | param: 0 | text:  | result: 
+[2025-04-24 20:39:19] | method: caesar | decrypt: False | param: 0 | text:  | result: 
+[2025-04-24 20:39:19] | method: caesar | decrypt: False | param: 0 | text:  | result: 
+[2025-04-24 20:39:19] | method: caesar | decrypt: False | param: 0 | text:  | result: 
+[2025-04-24 20:39:20] | method: caesar | decrypt: False | param: 0 | text:  | result: 
+[2025-04-24 20:39:27] | method: caesar | decrypt: False | param: 0 | text:  | result: 
+[2025-04-24 20:39:27] | method: caesar | decrypt: False | param: 0 | text:  | result: 
+[2025-04-24 20:39:27] | method: caesar | decrypt: False | param: 0 | text:  | result: 
+[2025-04-24 20:39:27] | method: caesar | decrypt: False | param: 0 | text:  | result: 
+[2025-04-24 20:53:10] | method: caesar | decrypt: False | param: 123 | text: asdsad | result: tlwltw
+[2025-04-24 20:53:19] | method: caesar | decrypt: False | param: 123 | text: я ебал твою мать | result: ц ьшчг йщёх дчйу
+[2025-04-24 20:55:46] | method: caesar | decrypt: False | param: 123 | text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore  | result: Ehkxf bilnf whehk lbm tfxm, vhglxvmxmnk twbiblvbgz xebm, lxw wh xbnlfhw mxfihk bgvbwbwngm nm etuhkx 
+[2025-04-24 20:56:10] | method: caesar | decrypt: True | param: 123 | text: Ehkxf bilnf whehk lbm tfxm, vhglxvmxmnk twbiblvbgz xebm, lxw wh xbnlfhw mxfihk bgvbwbwngm nm etuhkx  | result: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+[2025-04-24 21:06:40] | method: caesar | decrypt: False | param: 123 | text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore  | result: Ehkxf bilnf whehk lbm tfxm, vhglxvmxmnk twbiblvbgz xebm, lxw wh xbnlfhw mxfihk bgvbwbwngm nm etuhkx 
+[2025-04-24 21:09:10] | method: caesar | decrypt: False | param: 0 | text:  | result: 
+[2025-04-24 21:09:12] | method: caesar | decrypt: False | param: 123 | text:  | result: 
+[2025-04-24 21:09:13] | method: caesar | decrypt: False | param: 123 | text:  | result: 
+[2025-04-24 21:09:13] | method: caesar | decrypt: False | param: 123 | text:  | result: 
+[2025-04-24 21:09:13] | method: caesar | decrypt: False | param: 123 | text:  | result: 
+[2025-04-24 21:09:13] | method: caesar | decrypt: False | param: 123 | text:  | result: 
+[2025-04-24 21:09:14] | method: caesar | decrypt: False | param: 123 | text: asd | result: tlw
+[2025-04-24 21:09:15] | method: caesar | decrypt: False | param: 123 | text: asd | result: tlw
+[2025-04-24 21:12:51] | method: caesar | decrypt: True | param: 123 | text: Ehkxf bilnf whehk lbm tfxm, vhglxvmxmnk twbiblvbgz xebm, lxw wh xbnlfhw mxfihk bgvbwbwngm nm etuhkx  | result: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+[2025-04-24 21:26:21] | method: caesar | decrypt: False | param: 123 | text: asdasd | result: tlwtlw
+[2025-04-24 21:26:32] | method: caesar | decrypt: True | param: 123 | text: Ehkxf bilnf whehk lbm tfxm, vhglxvmxmnk twbiblvbgz xebm, lxw wh xbnlfhw mxfihk bgvbwbwngm nm etuhkx  | result: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+[2025-04-24 21:26:40] | method: caesar | decrypt: False | param: 123 | text: Ehkxf bilnf whehk lbm tfxm, vhglxvmxmnk twbiblvbgz xebm, lxw wh xbnlfhw mxfihk bgvbwbwngm nm etuhkx  | result: Xadqy ubegy paxad euf myqf, oazeqofqfgd mpubueouzs qxuf, eqp pa qugeyap fqybad uzoupupgzf gf xmnadq 
+[2025-04-24 21:26:41] | method: caesar | decrypt: False | param: 123 | text: Ehkxf bilnf whehk lbm tfxm, vhglxvmxmnk twbiblvbgz xebm, lxw wh xbnlfhw mxfihk bgvbwbwngm nm etuhkx  | result: Xadqy ubegy paxad euf myqf, oazeqofqfgd mpubueouzs qxuf, eqp pa qugeyap fqybad uzoupupgzf gf xmnadq 
+[2025-04-24 21:32:50] | method: caesar | decrypt: False | param: 123 | text: Ehkxf bilnf whehk lbm tfxm, vhglxvmxmnk twbiblvbgz xebm, lxw wh xbnlfhw mxfihk bgvbwbwngm nm etuhkx  | result: Xadqy ubegy paxad euf myqf, oazeqofqfgd mpubueouzs qxuf, eqp pa qugeyap fqybad uzoupupgzf gf xmnadq 
+[2025-04-24 21:32:54] | method: caesar | decrypt: True | param: 123 | text: Ehkxf bilnf whehk lbm tfxm, vhglxvmxmnk twbiblvbgz xebm, lxw wh xbnlfhw mxfihk bgvbwbwngm nm etuhkx  | result: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+[2025-04-24 21:37:26] | method: caesar | decrypt: False | param: 0 | text:  | result: 
+[2025-04-24 21:37:26] | method: caesar | decrypt: False | param: 0 | text:  | result: 
+[2025-04-24 21:37:27] | method: caesar | decrypt: False | param: 0 | text:  | result: 
+[2025-04-24 21:37:27] | method: caesar | decrypt: False | param: 0 | text:  | result: 
+[2025-04-24 21:50:58] | method: atbash | decrypt: True | param: 0 | text: Ehkxf bilnf whehk lbm tfxm, vhglxvmxmnk twbiblvbgz xebm, lxw wh xbnlfhw mxfihk bgvbwbwngm nm etuhkx  | result: Vspcu yromu dsvsp oyn gucn, estocencnmp gdyryoeyta cvyn, ocd ds cymousd ncursp yteydydmtn mn vgfspc 
+[2025-04-24 21:51:09] | method: caesar | decrypt: True | param: 123 | text: Ehkxf bilnf whehk lbm tfxm, vhglxvmxmnk twbiblvbgz xebm, lxw wh xbnlfhw mxfihk bgvbwbwngm nm etuhkx  | result: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 

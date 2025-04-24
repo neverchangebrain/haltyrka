@@ -1,0 +1,20 @@
+UA_UPPER = 'АБВГҐДЕЄЖЗИІЇЙКЛМНОПРСТУФХЦЧШЩЬЮЯ'
+UA_LOWER = UA_UPPER.lower()
+RUS_UPPER = 'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
+RUS_LOWER = RUS_UPPER.lower()
+ENG_UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+ENG_LOWER = ENG_UPPER.lower()
+
+class ErrorCodes:
+    CONTROLLER_BUG = 0x1
+    CONTROLLER_METHOD_BUG = 0x2
+    UNKNOWN_METHOD = 0x3
+    KEY_JUST_HAVE_LETTERS = 0x4
+    OPEN_FILE_BUG = 0x5
+    FILE_NOT_SELECTED = 0x6
+    FILE_SAVE_BUG = 0x7
+    LOG_NOT_CREATED = 0x8
+    OPEN_LOG_BUG = 0x9
+    EMPTY_LOG = 0x10
+    PARAM_NOT_INTEGER = 0x11
+    PARAM_NOT_STRING = 0x12

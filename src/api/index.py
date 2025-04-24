@@ -1,6 +1,7 @@
-from flask import Flask
-app = Flask(__name__)
+from core import runtime
 
-@app.route("/api/python")
-def hello_world():
-    return "<p>Hello, World!</p>"
+
+prepare_to_next_fn = runtime()
+
+if __name__ == "__main__":
+    prepare_to_next_fn.run(debug=True)
