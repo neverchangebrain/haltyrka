@@ -179,7 +179,7 @@ export default function CipherPage({ params }: { params: { method: string } }) {
                   {t.history_title}
                 </h3>
                 <pre className="bg-[#121212] border border-[#d4af37]/30 p-4 rounded-lg text-sm text-white max-h-96 overflow-auto relative z-10 custom-scrollbar">
-                  {history || t.log_empty}
+                  {typeof history === "number" ? t[history] : history}
                 </pre>
                 <div className="flex justify-end mt-4 relative z-10">
                   <button

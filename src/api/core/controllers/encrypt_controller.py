@@ -46,12 +46,12 @@ def encrypt_controller():
       return jsonify({ "result": result }), 200
     
     elif method == "xor":
-      result = xor(text, param)
+      result = xor(str(text), param)
 
       if result == None:
         return jsonify({ "status_code": ErrorCodes.PARAM_NOT_INTEGER }), 400
 
-      log(method, decrypt, param, text, result)
+      log(method, decrypt, param, str(text), result)
       return jsonify({ "result": result }), 200
     
     else:

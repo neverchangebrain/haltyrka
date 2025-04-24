@@ -1,6 +1,8 @@
 def xor(text, key):
     try:
-        result = ''.join(chr(ord(c) ^ ord(key[i % len(key)])) for i, c in enumerate(text))
+        data = str(key)
+        result = ''.join(chr(ord(c) ^ ord(data[i % len(data)])) for i, c in enumerate(text))
         return result
     except Exception as e:
+        print(e)
         return None
