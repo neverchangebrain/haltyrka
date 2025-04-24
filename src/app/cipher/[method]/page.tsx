@@ -21,12 +21,10 @@ export default function CipherPage({ params }: { params: { method: string } }) {
   useEffect(() => {
     const urlLang = searchParams.get("lang");
     const storedLang = urlLang || localStorage.getItem("lang") || "ua";
-    console.log(storedLang);
     setLang(storedLang);
-    console.log(lang);
   }, [searchParams]);
 
-  const t = getTranslation(lang!);
+  const t = getTranslation(lang ?? "ua");
 
   const getParamLabel = () => {
     switch (params.method) {
@@ -71,7 +69,7 @@ export default function CipherPage({ params }: { params: { method: string } }) {
             </svg>
           </button>
           <h1 className="text-3xl font-extrabold mb-6 text-center tracking-tight text-[#d4af37] drop-shadow-[0_2px_4px_rgba(212,175,55,0.3)]">
-            {t.cipher}: <span className="capitalize">{params.method}</span>
+            {t.cipher}: <span className="capitalize">{getParamLabel()}</span>
           </h1>
 
           <label className="block mb-2 text-[#e0c172] text-sm font-medium">
