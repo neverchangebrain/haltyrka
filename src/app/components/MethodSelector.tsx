@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { TransactionData } from "../localization/types";
+import { MethodDropMenuIcon } from "./icons/DropMenus";
 
 interface Props {
   method: string;
@@ -59,24 +60,7 @@ export default function MethodSelector({ method, setMethod, t }: Props) {
               ? options.find((opt) => opt.value === method)?.label
               : t.choose_method_option}
           </span>
-          <svg
-            className={`w-3 h-3 ml-1 transition-transform ${
-              isOpen ? "rotate-180" : ""
-            }`}
-            width="10"
-            height="10"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-          >
-            <path
-              d="M6 9L12 15L18 9"
-              stroke="#d4af37"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          {MethodDropMenuIcon({ open: isOpen })}
         </button>
 
         <div

@@ -1,4 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
+import { LanguageDropMenuIcon } from "./icons/DropMenus";
+
 interface Props {
   lang: string;
   setLang: (lang: string) => void;
@@ -34,21 +36,7 @@ export default function LanguageSelector({ lang, setLang }: Props) {
           aria-expanded={open}
         >
           {LANGS.find((l) => l.value === lang)?.label || lang}
-          <svg
-            className={`w-3 h-3 ml-1 transition-transform ${
-              open ? "rotate-180" : ""
-            }`}
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 20 20"
-          >
-            <path
-              d="M6 8l4 4 4-4"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          {LanguageDropMenuIcon({ open })}
         </button>
         <div
           className={`absolute right-0 mt-1 min-w-full bg-dark border border-border rounded shadow transition-all duration-200 z-10 overflow-hidden

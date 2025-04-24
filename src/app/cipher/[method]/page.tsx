@@ -5,6 +5,7 @@ import LanguageSelector from "../../components/LanguageSelector";
 import { Toaster } from "react-hot-toast";
 import { showError } from "../../utils/notification";
 import getTranslation from "../../localization/constants";
+import { BackIcon } from "@/app/components/icons/Back";
 
 export default function CipherPage({ params }: { params: { method: string } }) {
   const router = useRouter();
@@ -53,20 +54,7 @@ export default function CipherPage({ params }: { params: { method: string } }) {
             onClick={() => router.push(`/?lang=${lang}`)}
             title="Back"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M10 19l-7-7m0 0l7-7m-7 7h18"
-              />
-            </svg>
+            {BackIcon()}
           </button>
           <h1 className="text-3xl font-extrabold mb-6 text-center tracking-tight text-[#d4af37] drop-shadow-[0_2px_4px_rgba(212,175,55,0.3)]">
             {t.cipher}: <span className="capitalize">{getParamLabel()}</span>
