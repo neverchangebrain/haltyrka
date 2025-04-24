@@ -1,9 +1,0 @@
-[2025-04-17 19:22:42] | method: caesar | decrypt: False | param: 123 | text: фывфыв | result: лтщлтщ
-[2025-04-17 19:22:42] | method: caesar | decrypt: False | param: 123 | text: фывфыв | result: лтщлтщ
-[2025-04-17 19:23:55] | method: vigenere | decrypt: False | param: 123 | text: фывфы | result: Ошибка: ключ должен содержать только буквы.
-[2025-04-17 19:23:55] | method: vigenere | decrypt: False | param: 123 | text: фывфы | result: Ошибка: Ключ должен содержать только буквы.
-[2025-04-17 19:23:55] | method: vigenere | decrypt: False | param: 123 | text: фывфы | result: Ошибка: Ключ должен содержать только буквы.
-[2025-04-17 19:24:02] | method: vigenere | decrypt: False | param: фвыфвфыв | text: фывфы | result: иээиэ
-[2025-04-17 19:24:02] | method: vigenere | decrypt: False | param: фвыфвфыв | text: фывфы | result: иээиэ
-[2025-04-17 19:25:16] | method: caesar | decrypt: False | param: 123 | text: 123 | result: 123
-[2025-04-17 19:25:16] | method: caesar | decrypt: False | param: 123 | text: 123 | result: 123
