@@ -1,0 +1,5 @@
+[submodule "nazar_eduard_haltyrka"]
+  path = nazar_eduard
+  branch = main
+  update = rebase
+  url = https://github.com/neverchangebrain/haltyrka.git
